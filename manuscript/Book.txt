@@ -1,2 +1,14 @@
-introduction_to_puppet.txt
-
+chapter1-introduction.txt
+chapter2-lerning_environment.txt
+chapter3-installing_puppet.txt
+chapter4-resources_and_manifests.txt
+chapter5-modules.txt
+chapter6-node_classification.txt
+chapter7-variables_and_templates.txt
+chapter8-parameterized_classes.txt
+chapter9-control_structures.txt
+chapter10-defined_types.txt
+chapter11-exec.txt
+chapter12-mater-agent.txt
+chapter13-community_modules.txt
+chapter14

@@ -1,0 +1,22 @@
+# Chapter 01  :  Introduction to Puppet
+  - Configuration Magement
+  - Various Apprroaches  to Manage Configurations
+  - Puppet vs Scripts vs Images
+  - Declarative Approach vs Procedural
+  - Puppet Features
+      - Centralized Configuration Mangement System
+      - Declarative
+      - DSL/RAL : Resources and Providers
+      - Idempotent
+      - Pull Approach
+      - Infrastructure as a Code
+      - Sharable Code
+      - Cloud Integrations
+      - Itetative Approach
+      - Device Support
+  - When to Use Puppet
+      - Puppet Use Cases
+      - Customer Stories
+      - Puppet vs   Chef
+      - Comparison with Ansible
+      - Comparisonw with Docker

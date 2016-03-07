@@ -1,0 +1,13 @@
+#  Chapter 04  :  Building Blocks : Resources and Manifests
+   - Resource and Providers, RAL
+   - Puppet's DSL
+   - Anatomy of a Resource
+   - Properties of a Resource
+   - Manifests
+   - Lab: Writing our First Resource
+   - Lab: Checking for Syntax
+   - Lab: Applying first Resource
+   - Lab: Apply Again. See Idempotence in Action
+   - Exercise: Adding a few more resources
+   - Summary
+   - Quiz
