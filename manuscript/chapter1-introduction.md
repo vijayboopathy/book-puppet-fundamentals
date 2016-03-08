@@ -1,6 +1,6 @@
 # Chapter 01  :  Introduction to Puppet
   - Configuration Magement
-  - Various Apprroaches  to Manage Configurations
+  - Various Apprroaches to Manage Configurations
   - Puppet vs Scripts vs Images
   - Declarative Approach vs Procedural
   - Puppet Features
@@ -10,7 +10,7 @@
       - Idempotent
       - Pull Approach
       - Infrastructure as a Code
-      - Sharable Code
+      - Shareable Code
       - Cloud Integrations
       - Itetative Approach
       - Device Support

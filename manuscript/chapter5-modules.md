@@ -23,3 +23,8 @@
   - Exercise: Create a module to install MySQL Server
   - Summary
   - Quiz
+
+
+T> ## Hello  
+T> This is a sample tip   
+T>   ok   

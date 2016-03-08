@@ -1,0 +1,14 @@
+chapter1-introduction.md
+chapter2-lerning_environment.md
+chapter3-installing_puppet.md
+chapter4-resources_and_manifests.md
+chapter5-modules.md
+chapter6-node_classification.md
+chapter7-variables_and_templates.md
+chapter8-parameterized_classes.md
+chapter9-control_structures.md
+chapter10-defined_types.md
+chapter11-exec.md
+chapter12-mater-agent.md
+chapter13-community_modules.md
+chapter14
