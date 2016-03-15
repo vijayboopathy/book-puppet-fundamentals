@@ -1,9 +1,13 @@
 {pagebreak}
 
 - # Part
+
 # Section
+
 ## Sub Section
+
 ### Sub Sub Section
+
 #### Sub Sub Sub Section
 
 This is the
@@ -13,7 +17,15 @@ This is the 2nd para
 separated by a line  
 This is the 3rd para separated by 2 spaces at the end of line before  
 
-c> Centered text
+c>  This is a centered text
+
+*italic*
+
+**bold**
+
+***bold-italic***
+
+____underlined____
 
 1. Numbered list item 1
 1. Numbered list item 2
@@ -36,13 +48,15 @@ Header
 
 : description of the header
 
-> ** This is a Block Quote **
+
+> **This is a Block Quote**
 >
 > Block Quote gets indented
 >
 > > block quote inside a block quote
 
-** Text Blocks **
+
+**Text Blocks**
 
 Asides
 
@@ -96,7 +110,7 @@ X>
 X> 10 mins on treadmill
 X> followed by two sets of pushups
 
-** Writing Code **
+**Writing Code**
 
 Method 1 : 4 space indentation
 
@@ -136,7 +150,7 @@ Method 5: back ticks ``
 `echo "this is a short code snippet"`
 
 
-** Footnotes **
+**Footnotes**
 
 This is a text para
 and I am writing a
@@ -147,11 +161,11 @@ Later on I add the footnote as
 [^tag1]: description about the footnote. Should contain blank line before and after
 
 
-** Crosslinks **
+**Crosslinks**
 
 This is a cross link to {##Sub Section}
 
-** Table **
+**Table**
 
 | header1 | header2
 |---------|---------
