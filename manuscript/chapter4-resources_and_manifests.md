@@ -80,6 +80,8 @@ puppet help resource
 Resources are the building blocks of puppet. As discussed in the introductory chapter, as a user of puppet, we start looking at our infrastructure as a collection of entities, and start  writing resources to define the end  state and properties of one  entity at a time.
 
 For eample, we would like to create a system user by name **sachin** with following properties
+
+{title="user ", lang=html, linenos=off}
 ~~~~~~~
 user      = sachin
 uid       = 1010
@@ -87,6 +89,7 @@ home      = /home/sachin
 password  = '$1$jzi/Xjfd$Fpj3P16NBzfiiQGlDj9rG0'
 shell     = /bin/bash
 ~~~~~~~
+
 
 Now, when we talk about writing these resources, you may have following questions,
 * How are these resources written ?
@@ -103,7 +106,7 @@ Resource are written in a special language created by the creators of Puppet, wi
 
 A definition of a resource is very similar to stating properties f a entity along with the state, quiet similar to the description above,
 
-{title="Listing ", lang=html, linenos=off}
+{title="Resource DSL ", lang=html, linenos=off}
 ~~~~~~~
 TYPE { '<TITLE>':
   ensure       => <STATE>,
@@ -112,18 +115,19 @@ TYPE { '<TITLE>':
 ~~~~~~~
 
 Where,  
-:TYPE      : System entity to manage  
-:TITLE     : Instance of that entity   
-:STATE     : Desired state of the entity  
-:ATTRIBUTE : Property / Characteristic of the entity to be managed    
-:VALUE     : Value of the attribute  
+
+: TYPE      : System entity to manage  
+: TITLE     : Instance of that entity   
+: STATE     : Desired state of the entity  
+: ATTRIBUTE : Property / Characteristic of the entity to be managed    
+: VALUE     : Value of the attribute  
 
 * Rules
   * Description of the type is enclosed in { }
   * Just like json, each Attribute ends with a comma (,) except for last one
   * Attributed and values are separated by fat arrow ( => )>
 
-{title="User Resource with Puppet", lang=puppet, linenos=off}
+{title="Puppet Resource Example - User", lang=puppet, linenos=off}
 ~~~~~~~
 user { 'sachin':
   ensure => present,
@@ -138,10 +142,12 @@ user { 'sachin':
 I> ## Providers
 I>
 I> Each resource definition is translated to a actual procedure
-I> This procedure is platform specific e.g. creating users on
+I> which s platform specific e.g. creating users on
 I> windows and linux has differs procedures. Puppet detects the
 I> platform its running on and automatically invokes the
 I> procedure through providers.
+
+{pagebreak}
 
 #### TODO: Anatomy of a Resource
 
