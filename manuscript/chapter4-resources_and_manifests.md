@@ -1,11 +1,18 @@
 #  Chapter 04  :  Building Blocks : Resources and Manifests
+   - Puppet Utility, Subcommands
+   - Finding Help with Puppet
    - Resource and Providers, RAL
    - Puppet's DSL
    - Anatomy of a Resource
-   - Properties of a Resource
+   - Types of Resources - Inbuilt vs Custom
+   - Working with Puppet's Resource shell
+   - Discovering Resources and Information About it
+   - Creating Resources using Puppet Resource Shell
+   - Properties of a Resource - Idempotence
+   - Modifying Resources
    - Manifests
    - Lab: Writing our First Resource
-   - Lab: Checking for Syntax
+   - Lab: Checking Âfor Syntax
    - Lab: Applying first Resource
    - Lab: Apply Again. See Idempotence in Action
    - Exercise: Adding a few more resources

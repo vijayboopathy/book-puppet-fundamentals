@@ -25,6 +25,6 @@
   - Quiz
 
 
-T> ## Hello  
-T> This is a sample tip   
-T>   ok   
+T> ## Hello
+T> This is a sample tip
+T>   ok

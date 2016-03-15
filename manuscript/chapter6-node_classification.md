@@ -3,6 +3,7 @@
    - Node Classifiers
      - Node Declarations
      - ENC
+     - Hiera (using hiera_include functions)
    - Lab: Creating Node Declarations for Apache
    - Exercise: Creating Node Declarations for MySQL
    - Summary

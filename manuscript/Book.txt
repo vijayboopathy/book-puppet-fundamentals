@@ -1,3 +1,4 @@
+{mainmatter}
 chapter1-introduction.md
 chapter2-lerning_environment.md
 chapter3-installing_puppet.md
@@ -12,3 +13,5 @@ chapter11-exec.md
 chapter12-mater-agent.md
 chapter13-community_modules.md
 chapter14
+markdown_cheatsheet.md
+{backmatter}
