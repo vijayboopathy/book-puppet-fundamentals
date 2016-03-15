@@ -67,24 +67,28 @@ E>
 E> Oops ! You just barged into ladies toilet
 
 Information
+
 I> ## This is to print info
 I>
 I>  For your eyes only
 
 
 Questions
+
 Q> ## This prints questions
 Q>
 Q> What came first, chicken or the engg?
 
 
 Discussions
+
 D> ## This is for Discussions
 D>
 D> Lets talk about Life of Pie
 
 
 Exercises
+
 X> ## This is for exercises
 X>
 X> 10 mins on treadmill
