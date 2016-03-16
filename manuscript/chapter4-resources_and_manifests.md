@@ -195,6 +195,14 @@ cisco_interface_ospf {"Ethernet1/2 Sample":
 
 ~~~~~~~
 
+T> ## Extending Puppet
+T>
+T> Custom resources allow you to extend puppet's
+T> functionality by adding support to manage   
+T> custom devices, applications, cloud platforms
+T> etc using Puppet's simplified DSL. To write
+T> custom resource, knowledge of
+T> ruby is required.  
 
 ####  Working with Puppet's Resource shell
 Puppet comes with a *resource* sub command which lets us interact with the system using Puppet's RAL. It does two things,
@@ -203,7 +211,7 @@ Puppet comes with a *resource* sub command which lets us interact with the syste
 
 1.  Write/Modify: Using puppet's RAL, make changes to the state of system resources.
 
- 
+
 #### Namevars
 #### Discovering Resources and Information About it
 
