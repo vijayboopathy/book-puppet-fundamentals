@@ -153,9 +153,9 @@ I> procedure through providers.
 
 
 #### Types of Resources - Inbuilt vs Custom
-Puppet resource are of two types
+Based on whether you are managing code system functionality, or additional entities, puppet resource are classified as,
 
-**Built in**: These are packaged with puppet by default and  are sufficient to manage most common system entities e.g. users, groups, packages, services, network interfaces, cron jobs etc. At the time of writing there are 47 built in resources available.  
+**Built in/Core**: These are packaged with puppet by default and  are sufficient to manage most common system entities e.g. users, groups, packages, services, network interfaces, cron jobs etc. At the time of writing there are 47 built in resources available.  
 
 List of Useful Built In resources
 
@@ -177,7 +177,7 @@ https://docs.puppetlabs.com/puppet/latest/reference/type.html
 
 Following are two examples of puppet resources, one to create a apache virtual host, other to configure a network interface on a cisco network device
 
-{title="", lang=html, linenos=off}
+{title="", lang=puppet, linenos=off}
 ~~~~~~~
 apache::vhost { 'default':
     docroot             => '/var/www/document_root',
