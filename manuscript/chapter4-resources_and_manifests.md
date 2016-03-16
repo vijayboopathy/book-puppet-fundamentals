@@ -153,11 +153,58 @@ I> procedure through providers.
 
 
 #### Types of Resources - Inbuilt vs Custom
+Puppet resource are of two types
+
+**Built in**: These are packaged with puppet by default and  are sufficient to manage most common system entities e.g. users, groups, packages, services, network interfaces, cron jobs etc. At the time of writing there are 47 built in resources available.  
+
+List of Useful Built In resources
+
+| Essential     | Additional     |
+| :------------- | :------------- |
+| package        | interface       |
+| file           | host       |
+| service        | augeas         |
+| user           | ssh_authorized_keys       |
+| group          | schedule       |
+| mount          | tidy       |
+| cron           |            |
+
+For complete list of resource types, refer to
+https://docs.puppetlabs.com/puppet/latest/reference/type.html
+
+
+**Custom**: These are additional resource types to manage entities beyond the default ones and are packaged as part of the additional  modules.
+
+Following are two examples of puppet resources, one to create a apache virtual host, other to configure a network interface on a cisco network device
+
+{title="", lang=html, linenos=off}
+~~~~~~~
+apache::vhost { 'default':
+    docroot             => '/var/www/document_root',
+    server_name         => false,
+    priority            => '',
+    template            => 'apache/virtualhost/vhost.conf.erb',
+}
+
+cisco_interface_ospf {"Ethernet1/2 Sample":
+   ensure => present,
+   duplex => 'auto',
+   speed  => 10000,
+   shutdown => 'default'
+}
+
+~~~~~~~
 
 
 ####  Working with Puppet's Resource shell
+Puppet comes with a *resource* sub command which lets us interact with the system using Puppet's RAL. It does two things,
 
+1. Read: Provides an interface to quesry the state of a system entity, and covert it into a puppet code.
 
+1.  Write/Modify: Using puppet's RAL, make changes to the state of system resources.
+
+ 
+#### Namevars
 #### Discovering Resources and Information About it
 
 
