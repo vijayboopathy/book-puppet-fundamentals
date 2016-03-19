@@ -18,7 +18,7 @@ Before we start looking into what makes puppet so appealing as a automation tool
 
 If you are someone who is in the business of managing  more than a handful of systems, you should be familiar with the term "Configuration Management". As  Operations Engineers, Systems Administrator or a IT personnel, you may have to perform a few or all of the following tasks,
 
-![provisioning-ConfigM-ChangeM](images/chapter1/infra_lifecycle.png)
+![Infrastructure Events](images/chapter1/infra_lifecycle.png)
 
 
 * **Provisioning**
@@ -40,8 +40,8 @@ Puppet serves as a excellent tool for Configuration Management as well as Change
 ## Approaches to Manage Configurations
 The need for managing configurations and ongoing  changes had been a challenge which has seen various approaches. Lets look at some,
 
-  *TODO*
-  ![provisioning-ConfigM-ChangeM](images/)
+
+![provisioning-ConfigM-ChangeM](images/chapter1/config_mgmt_approaches.png)
 
     - Evolution of Configuration Management
         -  Manual
