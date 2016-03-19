@@ -41,7 +41,7 @@ Puppet serves as a excellent tool for Configuration Management as well as Change
 The need for managing configurations and ongoing  changes had been a challenge which has seen various approaches. Lets look at some,
 
 
-![provisioning-ConfigM-ChangeM](images/chapter1/config_mgmt_approaches.png)
+![Evolution of Configuration Management](images/chapter1/config_mgmt_approaches.png)
 
     - Evolution of Configuration Management
         -  Manual
