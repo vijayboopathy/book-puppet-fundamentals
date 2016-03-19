@@ -7,5 +7,3 @@
   - Running Puppet Agent one time and as a Service
   - Finding Help with Puppet Command and its sub commands
   - Summary
-
-c> center text
