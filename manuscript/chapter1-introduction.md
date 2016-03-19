@@ -10,7 +10,7 @@ Results were immediate, and tangible.
 
 * The **error rates**, specially related to configurations went down significantly, giving us more time to focus on more significant and exiting work. Also giving us more time back in our day.
 
-That was the beginning of my journey with devops automation tools, which also involves my tryst with Chef, and Ansible. Puppet was the first kid in the block, and has come a long way from the time it was created by Luke Kanies in 2005, to become a very matured and a indispensible tool in the kitty of a devops engineer.
+That was the beginning of my journey with devops automation tools, which also involves my tryst with Chef, and Ansible. Puppet was the first kid in the block, and has come a long way from the time it was created by **Luke Kanies** in 2005, to become a very matured and a indispensable tool in the kitty of a devops engineer.
 
 Before we start looking into what makes puppet so appealing as a automation tool, lets first understand what configuration management is about.
 
