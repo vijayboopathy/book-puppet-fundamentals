@@ -171,26 +171,39 @@ Managing configurations on systems running common operating systems such as wind
 Along with programmable infrastructures, new concepts such as Software Defined Networking(SDN) and Software Defined Storage(SDS) are taking root and changing the way devices are being managed. Puppet supports managing devices in two ways,
 
 1. Devices that are based on linux and have puppet agent ported to run on those can be configured the same way as other generic systems.
-1. Sub set of devices that do not have puppet agent can still be configured with puppet's device support over ssh/telnet. For such devices, puppet uses push instead of pull approach. 
+1. Sub set of devices that do not have puppet agent can still be configured with puppet's device support over ssh/telnet. For such devices, puppet uses push instead of pull approach.
 
 
 ### Audit and Compliance
+With ability to define the state of the  infrastructure components as a code and then  converge, one could easily codify the infrastructure policies and have them enforced. Puppets ability to test, log changes, and reporting mechanisms  help keeping a trail of the state of the systems and its components over time and track who made changes, when, if there are any nodes which have fallen out of policy etc.
 
-## When to Use Puppet
-  * Configuration Management at Scale
-  * Change Management
-  * Auto Correct Configuration Drifts
-  * Puppet Use Cases/ Customer Stories
-  * Centralized CMDB/Portal
+
+## When to Use Puppet ?
+You should consider using puppet if,
+
+* Configuration Management + Change Management: You have many nodes to deploy with changes happening often. You need to update the nodes and applications running on those often.
+* Auto Correct Configuration Drifts: When your organization has to comply to policies and you need an ability to convert those policies into a code which would auto correct and bring the nodes into the policy in case of configuration drifts.
 
 ## Who is it for?
 
-## What Puppet is not
-  * Graphical Management Tool (SCCM)
-  * Automated Testing Tool ( selenium )
-  * Application Orchestrator (not yet one?)
-  * agent less management system
 
+## What Puppet is not
+* Graphical Management Tool (SCCM):
+  If you are looking for a tool which would allow you to manage everything through a graphical interface without writing any code or without ever having to use an editor, well puppet is not the tool for you.  I have come across many engineers, who say "well, the capabilities of puppet sounds great, but can I do all of this using a GUI where I can just click click and get things done.... ? " Well, its infrastructure as a code is what we are talking about. Even though enterprise puppet puppet offers a nice GUI, its mostly for reporting and classifications. Since I started using puppet and similar tools, I have been using text editors more often.
+
+  * Automated Testing Tool ( selenium ):
+  Its not a silver bullet. Its not one solutions to all. I meet a lot of QA folks who have heard that puppet would automate everything and you could use it for testing too.  Well, there is always a special purpose tool for each task and the application testing is not puppet's ball game.  Sure puppet could help in testing by letting you automate the process of building and configuring a fresh environment to run your tests inside, and give you ability to do it repeatedly. It also gives you a way to test infrastrcuture code. However, its not a test automation tool.
+
+
+  * Application Deployment Tool:
+  Even though Puppet has been talking about application orchastration, if you are looking for a tool purely for application deployments, rolling updates, canary releases, orchestrated deplyoments over multiple hosts, you have tools which do it better. One tool I could suggest you for application deployment and orchastration is Asible which is push based, and works better in such scenarios.
+
+
+  * Agent less Management System:
+  Except for a sub set of network devices, puppet mandates running agents on each node being managed. In fact its designed to be heavy on the agent side which is responsible to initiate communication with the master, pull policies,  enforce and report back.  If you need a agent less management system, puppet is not the one. Again, I would suggest using Ansible in such cases, which works over ssh and is agent less.
+   
+
+  * Puppet Use Cases/ Customer Stories
 
 ## Comparison with Similar Tools
   * Puppet vs   Chef
