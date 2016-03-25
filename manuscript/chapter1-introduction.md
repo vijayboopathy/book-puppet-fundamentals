@@ -181,8 +181,9 @@ With ability to define the state of the  infrastructure components as a code and
 ## When to Use Puppet ?
 You should consider using puppet if,
 
-* Configuration Management + Change Management: You have many nodes to deploy with changes happening often. You need to update the nodes and applications running on those often.
-* Auto Correct Configuration Drifts: When your organization has to comply to policies and you need an ability to convert those policies into a code which would auto correct and bring the nodes into the policy in case of configuration drifts.
+* Configuration Management + Change Management: You have many nodes to deploy with changes happening often. You need to update the nodes and applications running on those often.  
+* Compliance and Audit: When your organization has to comply to policies and you need an ability to convert those policies into a code which would auto correct and bring the nodes into the policy in case of configuration drifts.  
+* Software Delivery : If you are in buisness of building software and delivering as ova images or similar, puppet is better approach to deliver the product and push updates to it.
 
 ## Who is it for?
 
@@ -201,7 +202,7 @@ You should consider using puppet if,
 
   * Agent less Management System:
   Except for a sub set of network devices, puppet mandates running agents on each node being managed. In fact its designed to be heavy on the agent side which is responsible to initiate communication with the master, pull policies,  enforce and report back.  If you need a agent less management system, puppet is not the one. Again, I would suggest using Ansible in such cases, which works over ssh and is agent less.
-   
+
 
   * Puppet Use Cases/ Customer Stories
 
