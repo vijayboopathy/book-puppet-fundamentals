@@ -6,41 +6,42 @@ C>
 C>               -- Georg Buchner
 
 
-My journey with Puppet began back in 2008, when as I was part of the Operations Team involved in managing a infrastructure of a few hundred servers with web applications running on it, spanning across multiple environments. Our team consisted of folks located in  India and US and managing the environment during our respective day time, on time shared basis. Each  one of us would come in during our day and make ad hoc changes when necessary, and not always communicate with the team on the other side of the globe at the end of the day. We did not have daily sync up meetings either. Issues with the product  pop up regularly, followed by flipping through logs, root cause analysis and few hours spent just to  figure out whether it was due to the inconsistency with the environment, configurations or it was actually the application code related bug. Tired of this fire fighting, we started looking for solutions to help us efficiently manage this environment. And thats when we came across Puppet, which was already popular, was picked by likes of google, and had a active community around it.
+My journey with Puppet began back in 2008, when as I was part of a Ops Team managing a mid scale infrastructure for a SaaS company. Our team consisted of ops engineers in  India and US working in their respective timezone, keeping lights on 24x7.  As part of day to day operations, all of us would  make ad hoc changes to the servers, and not  communicate back with the team on the other side of the globe. We did not have daily sync up meetings either. Regularly, issues would pop with the product, in staging as well as in production environments. Being in charge of triaging, we would  spend some time flipping through logs, do root cause analysis and  figure out whether its a environment problem or a code related issue. Tired of this fire fighting, we started looking for solutions to help us efficiently manage this environment. And thats when we came across Puppet, which was popular, was already picked by likes of google, and had an active community around it. We started using it to setup the infrastructure as well as manage changes through a centralized console.
 
 Results were immediate, and tangible. After implementing puppet based configuration management system,
 
-* We now had a centralized tool which streamlined our process managing configurations. Resulted in minimal ad hoc changes and a **consistency** across the environment.
+* We now had a centralized tool which streamlined our process of managing configurations. This resulted in minimal ad hoc changes and **consistency** across the environments.
 
-* Since we started writing infrastructure as a Code, everyone including the developers had **visibility** into the way infrastructure was configured  
+* **Visibility** was another important outcome. Since we started writing infrastructure as a Code, everyone including the developers had **visibility** into the way infrastructure was configured. All one had to do was look at the svn/git repository, the last commits to know the current configurations and latest changes.
 
-* The **error rates**, specially related to configurations dropped  significantly, giving us more time to focus on more significant and exiting work. Also giving us more time back in our day.
+* **Error rates**, specially related to configurations dropped  significantly, giving us more time back in our day, to focus on scale and other important issues.
 
-That was the beginning of my journey with devops automation tools, which also involves working with Chef, and Ansible. Puppet was the first kid in the block, and has come a long way from the time it was created by **Luke Kanies** in 2005, to become a very matured and a indispensable tool in the kitty of a devops engineer.
+That was the beginning of my journey with devops automation tools, which also includes exposure to Chef, and Ansible. Puppet was the first kid on the block, and has come a long way from the time it was created by **Luke Kanies** in 2005, to become a very matured and a indispensable tool in the kitty of a devops engineer.
 
-Before we start looking into what makes puppet so appealing as a automation tool, lets first understand what configuration management is about.
+Before we start looking into what makes puppet a excellent choice for a automation tool, lets first understand what configuration management is about.
 
 ## Infrastructure Life Events and Puppet
 
-If you are someone who is in the business of managing  more than a handful of systems, you should be familiar with the term "Configuration Management". You should also be familiar with the following life events of setting up and managing a infrastructure hosted on physical or cloud servers.
+If you are the one  who is in the business of managing  more than a handful of systems, you should be familiar with the term "Configuration Management". Be it physical servers, virtual machines or cloud based setup, infrastructure typically goes through the  following life events,
 
 ![Infrastructure Events](images/chapter1/infra_lifecycle.png)
 
 
 * **Provisioning**
-  * Provision servers, physical, virtual, cloud or a combination.
+  * Provision servers - physical, virtual or cloud.
   * Install Operating System either using manual/automated install process or using an image/template.
 
 * **Configuration Management**
-  * Prepare the systems with the base configurations such as logins,  packages, security configurations etc.
-  * Install and configure services such as apache, tomcat, setup cron jobs, install and configure databases
-  * Deploy application code
+  * Prepare the systems with the base configurations such as users,  packages, security configurations etc.
+  * Tech Stack: install and configure services such as apache, tomcat, setup cron jobs, install and configure databases
+  * Deploy the application code on top of the tech stack configured. This is where the code written by your team gets deployed with relevant configurations.
 
 * **Change Management**
-  * Update configurations parameters across a class of servers eg. update port that web server is running on.
-  * Deploy new version of the application code, push security patches etc, install additional services.
+  Configurations made during the initial setup do not last for a life time. Infrastrcuture goes through constant changes and evolves over time. Change manageement involves,
+  * Updating configurations parameters across a class of servers eg. update port that web server is running on.
+  * Deploying new versions of the application code, push security patches etc, install additional services.
 
-Puppet serves as a excellent tool for Configuration Management as well as Change Management. And along with tools such as Razor, Cloud Plugins, Vagrant, Terraform it could also help automating provisioning of servers too. However puppet as a tool by itself does have an ability to provision and comes in to play once the Operating System is installed and puppet agent is setup.
+Puppet serves as a excellent tool for Configuration Management as well as Change Management. And along with tools such as Razor, Cloud Plugins, Vagrant, Terraform it could also  automate provisioning of servers too. However puppet as a tool by itself does have an ability to provision and comes in to play once the Operating System is installed and puppet agent is setup.
 
 
 ## Evolution of Configuration Management
@@ -53,11 +54,18 @@ As systems engineers, we almost always begin configuring systems by hand, in a a
 ### Scripts  
 Scripts allow one to take a sequence of commands to run and put it in a procedural program  code. Whenever there is need to repeat processes,  scripts come in very handy. Some of the popular scripting languages amongst the systems personnel include shell/bash, perl, python, ruby or powershell.  Scripts are the initial approach towards automating manual tasks, this approach is not scalable or flexible enough to manage a sophisticated infrastructure spanning across multitude of environments or the ones involving multiple different operating systems etc.
 
+T> ## Configuration Management and  Software Configuration Management
+T>
+T> Software Configuration Management is referred to often with context of
+T> Revision Control which is about tracking changes to the application code.
+T> This is just one part of a larger field of Configuration Management.  
+
+
 ### Golden Images  
-Golden images, or templates, or simply os images, are probably the quickest way to deploy servers complete with configurations, specially in virtual or cloud environments. Images nothing but pre baked templates with operations system files, applications, and configurations. Take any cloud provider, and one of the first components to choose while you provision a server is the images. A lot of organizations these days package their products in the form of images such as ova, vmdk or even vagrant's box format. However images have one major problem i.e. change management. Every time there is an update, even a single line change,  one needs to build a new image. Not only this complete system image needs to be distributed but also existing systems need to be replaced with the new image. Imagine doing that in a dynamic environment involving frequent updates across  hundreds of servers. That could get too cumbersome. And thats when the need to build a new approach arose.  
+Golden images, or templates, or simply os images, are probably the quickest way to deploy servers complete with configurations, specially in virtual or cloud environments. Images nothing but pre baked templates with operations system files, applications, and configurations. Take any cloud provider, and one of the first components to choose while you provision a server is the images. A lot of organizations these days package their products in the form of images such as ova, vmdk or even vagrant's box format. However images have one major problem i.e. change management. Every time there is an update, even a single line change,  one needs to build a new image. Not only this complete system image needs to be distributed but also existing systems need to be replaced with the new image. Imagine doing that in a dynamic environment involving frequent updates across  hundreds of servers. That could get too cumbersome. And thats where the need to come up with a new approach.  
 
 ### Infrastructure as a Code  
-"Infrastructure as a Code" or "Programmable Infrastructure" is where today's generation tools such as Puppet, Chef, Ansible, Salt fit in. These tools essentially allow one to write the state of the infrastructure using a higher level  language and store it as a code. Since this is a code, one could bring in the best practices that developers have been following for years e.g. using version control systems, use of sophisticated editors, test driven development, peer programming etc. You could completely re build the infrastructure in case of disaster, as long as you have the code repository, compute resources and data backups in place. Since this code is written in a simple declarative syntax, it is self documenting and offers visibility to all stakeholders into the way infrastructure is built and configured.
+"Infrastructure as a Code" or "Programmable Infrastructure" is where today's generation tools such as Puppet, Chef, Ansible, Salt fit in. These tools essentially allow one to write the state of the infrastructure using a higher level descriptive  language and store it as a code. Since this is a code, one could bring in the best practices that developers have been following for years e.g. using version control systems, use of sophisticated editors, test driven development, peer programming etc. You could  build the complete infrastructure from scratch in case of a disaster, as long as you have the code repository, compute resources and data backups in place. Since this code is written in a simple declarative syntax, it is self documenting and offers visibility to all stakeholders into the way infrastructure is built and configured.
 
 ![Evolution of Configuration Management](images/chapter1/config_mgmt_approaches.png)
 
@@ -71,7 +79,7 @@ Golden images, or templates, or simply os images, are probably the quickest way 
 
 
 ## Why to use Puppet ?
-Now that we have started discussion on   Infrastructure as a Code, specifically Puppet, lets learn about what makes it a compelling tool for configuration and change management.  
+Now that we have started discussion on   Infrastructure as a Code, specifically Puppet, lets discuss about the specific features of puppet that make it a useful tool for configuration and change management.  
 
 ### Declarative vs Procedural Approach
 Scripts take a procedural approach towards automation. With scripts, we focus on the **how** part. e.g. how to install a package, how to create a user, how to modify it later, how to do it on a specific platform. And if you would want to add a support for another platform, you may have to add additional procedure and write a conditional to check for the platform and call the relevant code. This involves a lot of efforts.
@@ -181,9 +189,9 @@ With ability to define the state of the  infrastructure components as a code and
 ## When to Use Puppet ?
 You should consider using puppet if,
 
-* Configuration Management + Change Management: You have many nodes to deploy with changes happening often. You need to update the nodes and applications running on those often.  
-* Compliance and Audit: When your organization has to comply to policies and you need an ability to convert those policies into a code which would auto correct and bring the nodes into the policy in case of configuration drifts.  
-* Software Delivery : If you are in buisness of building software and delivering as ova images or similar, puppet is better approach to deliver the product and push updates to it.
+* **Configuration Management** + Change Management: You have many nodes to deploy with changes happening often. You need to update the nodes and applications running on those often.  
+* **Compliance and Audit**: When your organization has to comply to policies and you need an ability to convert those policies into a code which would auto correct and bring the nodes into the policy in case of configuration drifts.  
+* **Software Delivery** : If you are in business of building software and delivering as ova images or similar, puppet is better approach to deliver the product and push updates to it.
 
 ## Who is it for?
 
@@ -203,6 +211,9 @@ You should consider using puppet if,
   * Agent less Management System:
   Except for a sub set of network devices, puppet mandates running agents on each node being managed. In fact its designed to be heavy on the agent side which is responsible to initiate communication with the master, pull policies,  enforce and report back.  If you need a agent less management system, puppet is not the one. Again, I would suggest using Ansible in such cases, which works over ssh and is agent less.
 
+  * Software Configuration Management(SCM) Tool
+  SCM is a part of the larger Configuration Management and typically refers to the practice of revision/version control. Puppet is not the tool which does the version control, however it can be used to replicate and manage software configurations across
+  a cluster of nodes.
 
   * Puppet Use Cases/ Customer Stories
 

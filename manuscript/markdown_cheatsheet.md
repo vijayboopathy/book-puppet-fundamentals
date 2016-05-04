@@ -29,6 +29,8 @@ ____underlined____
 
 1. Numbered list item 1
 1. Numbered list item 2
+*  Numbered list item 3 with *
+
 
     para between list item 4 indents,
     blank like after prev item, num seq continues
