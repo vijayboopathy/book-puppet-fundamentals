@@ -105,13 +105,23 @@ We just learnt about puppet allowing us to write the desired state of the infras
 This behavior allows the users of the puppet to create policies stating what which entities should be present or absent, with what properties.
 
 ### Convergence and Idempotence
-Puppet reads the resources, calls the re relevant providers for the platform it runs on, and ensures the desired state of the resource is achieved. While it does so, it may need to make changes to the system. But what if the resource has already achieved the desired state and needs no further updates?  Puppet has the  built in intelligence to know what is the current state of the resource is. Instead of making changes blindly, it first compares the current state of the resource with the desired state, and the makes a decision whether it requires any changes, and if yes, what changes. This would ensure that puppet. This process is called as convergence.
+Puppet reads the resources, calls the re relevant providers for the platform it runs on, and ensures the desired state of the resource is achieved. While it does so, it may need to make changes to the system. But what if the resource has already achieved the desired state and needs no further updates?  Puppet has the  built in intelligence to know what is the current state of the resource is. Instead of making changes blindly, it first compares the current state of the resource with the desired state, and the makes a decision whether it requires any changes, and if yes, what changes to make.  This process is called as convergence.
+
+*TODO*: Draw diagrams
 
 e.g.
 
 Lets assume we have written a resource to create  a user  with a password.
 
-*TODO*: Draw diagrams
+{title="Listing ", lang=puppet, linenos=off}
+~~~~~~~
+user{'xyz':
+  uid       =>  '501',
+  gid       =>  '501',
+  home      =>  '/home/xyz',
+  password  =>  '$1$foYKL0zO$elXbUOb/JjHqS4aI8O25i.'
+}
+~~~~~~~
 
 *  First time puppet applies this resource on the system, the user may not exist. Puppet detects the current state, compares it with the desired state which mentions it should exist, and finds the configuration drift. It then creates the user with the password to bring the current state to desired state.
 
