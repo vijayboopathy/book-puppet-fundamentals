@@ -353,6 +353,7 @@ T> ruby and python respectively.
 
 Before applying the puppet code written in  abc.pp, lets check it for syntactical correctness, for which, puppet provides a tool called parser, which can be invoked as a subcommand to puppet. 
 
+{title="", lang=puppet, linenos=off}
 ~~~~~~~
 puppet help  parser
 
@@ -473,6 +474,7 @@ There are at least 3  ways to find this information.
 
 ##### Using Puppet Describe 
 
+{title="", lang=puppet, linenos=off}
 ````
 [root@master vagrant]# puppet help describe
 
@@ -519,6 +521,7 @@ Take your time to explore all the options above before starting to write your fi
 
 To write the file resource we intend to , lets create a manifest *local.pp* and write the following code, 
 
+{title="", lang=puppet, linenos=off}
 ````
 file { '/tmp/hello':
   ensure   => file,
@@ -531,6 +534,7 @@ file { '/tmp/hello':
 
 before applying this manifest, lets first check the syntax, 
 
+{title="", lang=puppet, linenos=off}
 ``` puppet parser validate /vagrant/puppet/local.pp
 
 [output]
@@ -542,6 +546,7 @@ Yes that was a intentional error. Fix it and make sure the code is syntactically
 
 This time, we would also do a dry run, before actually applying. Dry run  would tell us what would happen when this code is applied. 
 
+{title="", lang=puppet, linenos=off}
 ``` puppet apply --noop /vagrant/puppet/local.pp
 
 [output]
@@ -555,6 +560,7 @@ Notice: Applied catalog in 0.03 seconds
 
 Lets now apply changes by removing --noop
 
+{title="", lang=puppet, linenos=off}
 ```
 puppet apply local.pp
 
@@ -567,6 +573,7 @@ Notice: Applied catalog in 0.03 seconds
 
 Validate the file is been created with correct properties and permissions
 
+{title="", lang=puppet, linenos=off}
 ```
 [root@master vagrant]# ls -l /tmp/hello
 -rw-r--r-- 1 root root 13 May  5 06:50 /tmp/hello
@@ -577,12 +584,55 @@ Hello World
 
 
 ####  Namevars
+
+If you observer  the resource that we have written, you would see that, in place of title we have provided the file path e.f. /tmp/hello
+
+{title="", lang=puppet, linenos=off}
+````
+file { '/tmp/hello':
+  ensure   => file,
+  mode     => '0644',
+  owner    => 'root,
+  content  => "Hello World \n"
+}
+
+````
+
+Does this mean, we always have to speficy file paths as part of the titles? Not really. The reason we have to define  path in the title is because we have not explictly set it as a attribute. If were to define it as a  resource attribute , you could rewrite the resource as 
+
+
+{title="", lang=puppet, linenos=off}
+````
+file { 'my first file':
+  ensure   => file,
+  path     => '/tmp/hello'
+  mode     => '0644',
+  owner    => 'root,
+  content  => "Hello World \n"
+}
+
+````
+
+In this case, we added a attribute called path. Once thats added, the title of the resource could be anything. This brings us to special types of attributes called **namevars**. Whats special about namevars is this, 
+
+* If not defined, The value of namevar is set to the title of the resource. This also mean in such cases the title *must* set the value of navevar. 
+
+* If namevar is explicitly defined, the title could take any value. 
+
+
+
 ####  Exercise: Adding a few more resources
+
+Now that we learnt the resource sytax, and created a manifest, lets add a few more resource to our existing manifest and apply.  
+
+To local.pp, you should add resources with the following specifications 
+
 1. Create users : xyz, pqr
 1. Remove user : abc
 1. Install Packages : tree, telnet, nmap
 
 ####  Summary
 
+In this chapter we learnt about the basic building blocks of puppet, the DSL used by Puppet, anatomy of a resources etc. We learnt how to discover information about existing system entities as well as to create new entities, making modifictions etc. We also learnt about a few important properties of puppet resources such as declarative structure, idempotence etc. We created a simple manifests with a few resources as part of the exercieses. 
 
 #### Quiz

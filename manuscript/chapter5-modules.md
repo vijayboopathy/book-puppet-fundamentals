@@ -1,4 +1,7 @@
 #  Chapter 05  :  Creating Reusable Code - Modules
+  
+In the last chapter we learnt how to write simple manifests with a few  resources. In this chapter we are going to start organizing manifests into modules and create reusable, shareable and flexible code. 
+
   - Problems with Single Manifests
   - Reusable Code - Modules
   - Modules Layout
