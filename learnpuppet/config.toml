@@ -1,3 +1,6 @@
 baseurl = "http://replace-this-with-your-hugo-site.com/"
 languageCode = "en-us"
 title = "Learn Puppet"
+[params]
+  description = "A School of Devops Initiative"
+  author = "Gaurav Shah"
