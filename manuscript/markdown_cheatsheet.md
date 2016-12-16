@@ -95,7 +95,7 @@ Questions
 
 Q> ## This prints questions
 Q>
-Q> What came first, chicken or the engg?
+Q> What came first, chicken or the egg?
 
 
 Discussions
