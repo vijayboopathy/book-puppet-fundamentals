@@ -1,0 +1,202 @@
+Chapter 01  :  Introduction to Puppet
+
+  - Configuration Management
+  - Various Approaches  to Manage Configurations
+  - Puppet vs Scripts vs Images
+  - Declarative Approach vs Procedural
+  - Puppet Features
+      - Centralized Configuration Management System
+      - Declarative
+      - DSL/RAL : Resources and Providers
+      - Idempotent
+      - Pull Approach
+      - Infrastructure as a Code
+      - Sharable Code
+      - Cloud Integrations
+      - Iterative Approach
+      - Device Support
+  - When to Use Puppet
+      - Puppet Use Cases
+      - Customer Stories
+      - Puppet vs   Chef
+      - Comparison with Ansible
+      - Comparison with Docker
+
+
+Chapter 02  :  Setting up Learning Environment
+   - Pre Requisite Softwares
+      - VirtualBox
+      - Vagrant
+      - Editor - Sublime/Atom
+      - Git for Windows
+      - VM Image/Box
+   - Building Environments with Vagrant
+   - Creating VMs
+       - Puppet Master
+       - Web Server - Centos
+       - Web Server - Ubuntu
+       - Database Server
+       - Load Balancer
+   - Installing Puppet ( move it to learning env setup)
+       - Installing and Configuring Puppet Master
+       - Installing Puppet Agent
+       - Master Agent Communication Workflow
+       - Signing Certificates
+       - Running Puppet Agent as a Service
+       - Summary
+
+
+Chapter 03  :  Building Blocks : Resources and Manifests
+   - Puppet Utility, Subcommands
+   - Finding Help with Puppet
+   - Resource and Providers, RAL
+   - Puppet's DSL
+   - Anatomy of a Resource
+   - Types of Resources - BuiltIn vs Custom
+   - Working with Puppet's Resource shell
+   - Discovering Resources and Information About it
+   - Creating Resources using Puppet Resource Shell
+   - Properties of a Resource - Idempotence, Uniqe, Declarative
+   - Modifying Resources
+   - Manifests
+   - Lab: Writing our First Resource
+   - Lab: Checking For Syntax
+   - Lab: Applying first Resource
+   - Lab: Apply Again. See Idempotence in Action
+   - Exercise: Adding a few more resources
+   - Go over the list of resources
+   - Summary
+   - Quiz
+
+
+Chapter 04  :  Creating Reusable Code - Modules
+   - Problems with Single Manifests
+   - Reusable Code - Modules
+   - Modules Layout
+   - Metadata
+   - Manifest in Modules and Classes
+   - Manifest Naming Schemes
+   - Lab: Create Java  Install Manifest
+            - Generate Module Layout
+            - Write install.pp
+   - Node Definitions Basics
+            - Apply java::install class to a node
+   - Ordering and Meta Parameters
+     - need for ordering
+     - simple ordering
+       - before
+       - require
+     - ordering with notification
+       - notify
+       - subscribe
+     - resource chaining
+     - why these are called  meta parameters
+     - list of other meta parameters
+   - Exercise: Create a module to install Tomcat Server
+       - tomcat::install
+       - tomcat::service
+   - Summary
+   - Quiz
+
+Chapter 05  :  Adding Dynamism  - Variables, Facts and Templates
+   - Problems with Static Content
+   - Creating Configurations Dynamically  with Variables and Templates
+   - Parameters and Facts
+   - Scopes
+       - top
+       - node
+       - parent class
+       - child class
+   - Story of params.pp pattern and class inheritance
+   - Automatically Discover Node information - Facts
+   - Lab: Parameterize tomcat configurations
+   - Lab: Create a base class
+   - Data in Modules (puppet 4): The new way
+   - Summary
+   - Quiz
+
+Chapter 06 : Templates
+   - File vs Templates debate
+   - The golden rule ( use templates for configs)
+   - Templates and ERB Syntax
+      - Embedding Ruby in a text file using Tags
+      - Types of ERB Tags
+   - Lab: Create a Template for Tomcat Configuration
+   - Lab: Convert motd specs into a template
+   - EPP Templates : The new way (puppet 4)
+   - Summary
+   - Quiz
+
+Chapter 07  :  Enhancing Classes with Parameters
+   - Classes vs Parameterized Classes
+   - Need for Class Parameters
+   - Passing Parameters from Node Declarations
+   - Lab: Convert Apache Class to accept Parameters
+   - Summary
+   - Quiz
+
+Chapter 08  :  Defined Types
+   - Definitions/ Defined Types
+   - Defined Types vs Parameterized Classes
+   - Lab: Creating a Defined Type
+   - Summary
+   - Quiz
+
+Chapter 09  :  Calling External Programs - Exec
+   - Bringing in existing code
+   - Exec Resource
+   - Controlling Idempotence of exec
+      - not_if
+      - only_if
+      - creates
+      - refreshonly
+   - Summary
+   - Quiz
+
+
+Chapter 11  :  Using Community Modules
+    - Infrastructure as a Code
+    - Puppet Forge
+    - Searching for Modules
+    - Finding the right modules/shortlisting
+    - Downloading and Using Modules
+    - Dependencies
+    - Anchor Patterns
+    - Summary
+    - Quiz
+
+Chapter 10  :  Master Agent - Enterprise Puppet
+    - Puppet Enterprise vs Puppet Open Source
+    - Puppet Enterprise Features
+    - Classifying Nodes with Enterprise Puppet
+    - Re configuring Puppet Nodes (remove ssl, re add)
+    - Summary
+    - Quiz
+
+
+Chapter xx  :  Roles and Profile Design Patterns
+Chapter xx  :  Environments and r10k/ Code Manager
+Chapter xx  :  Hiera
+
+
+Possible Includes ?
+
+hiera, r10k, multi env
+Augeas?
+
+FOR ADVANCED
+(basic node classification can go into another module. discuss advanced concepts such as enc and hiera later)
+Chapter xx  :  Managing Multiple Nodes - Node Classifications - Advanced
+   - Managing Multiple Nodes
+   - Node Classifiers
+     - Node Definitions
+     - ENC
+     - Hiera
+   - Node Definitions
+     - node block
+     - default block
+     - multiple nodes and regex
+   - Lab: Creating Node Declarations for Apache
+   - Exercise: Creating Node Declarations for MySQL
+   - Summary
+   - Quiz
