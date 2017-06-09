@@ -14,6 +14,7 @@ LAB: https://gist.github.com/initcron/a1c8acc4dbb91cae17fde6fbcace08cf
 
 Chapter 6 : Templates
 
+LAB : https://gist.github.com/initcron/e94e7357f7568cd0548b795ad61f3757
 
 
 
