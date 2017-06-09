@@ -1,0 +1,11 @@
+---
+slug: zero-to-puppet
+filename: zero-to-puppet
+title: Title of the Book
+subtitle: Change me
+description: Change me.
+author: Author Name
+copyright: 2017
+uuid: 7e2c07fc-cfd4-4fd4-8101-d40f2d728fd6
+pdf_preview_page_range: 1..30
+epub_mobi_preview_chapter_range: 0..1
