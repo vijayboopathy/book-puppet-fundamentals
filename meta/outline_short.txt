@@ -1,0 +1,59 @@
+Puppet Fundamentals
+Puppet Primer
+
+	Chapter 01  :  Introduction to Puppet
+	Chapter 02  :  Setting up Learning Environment
+	Chapter xx  :  Installing Puppet ( Should this go in above chapter/ env setup)
+	Chapter xx  :  Building Blocks : Resources and Manifests
+	Chapter xx  :  Creating Reusable Code - Modules, Node Classification
+	Chapter xx  :  Managing Multiple Nodes - Node Classifications (moveed it to modules )
+	Chapter xx  :  Adding Dynamism  - Variables, Facts and Templates
+	Chapter xx  :  Enhancing Classes with Parameters
+	Chapter xx  :  Control Structures - Conditional and Logic (params.pp?)
+	Chapter xx  :  Defined Types
+	Chapter xx  :  Calling External Programs - Exec
+	Chapter xx  :  Metadata and Dependencies (talk about this in other chapters e.g. modules)
+	Chapter xx  :  Using Community Cookbooks
+	Chapter xx  :  Hiera
+	Chapter xx  :  Roles and Profile Design Patterns
+	Chapter xx  :  Environments and r10k/ Code Manager
+	Chapter xx  :  Master Agent - Enterprise Puppet
+
+
+
+
+Possible Includes ?
+Augeas?
+
+
+
+
+
+Chapters for Further Consideration for Future Books
+Adanced Puppet
+	Chapter xx  :  Roles and Profile Design Patterns
+	Chapter xx  :  Environments and r10k
+	Chapter xx  :  Hiera
+
+	Chapter xx  :  Mcollective and Orchestration
+	Chapter xx  :  ENC
+	Chapter xx  :  Testing Puppet Code
+	Chapter xx  :  Foreman
+	Chapter xx  :  Auditing
+	Chaper  xx  :  Virtual and Exported Resources
+	Chaper  xx  :  PuppetDB
+ 	Chapter xx  :  Blueprint (	http://devstructure.com/blueprint )
+	Chapter xx  :  Managing Devices with Puppet
+	  				   - SDN (Software Defined Networking)
+	  				   - SDS (Software Defined Storage)
+	Chapter xx  :  Vagrant + Puppet Provisioning
+	Chapter xx  :  AWS + Puppet
+	Chapter xx  :  Openstack + Puppet
+	Chapter xx  :  Bare Metal Provision
+	Chapter xx  :  Puppet Server Administration
+	Chapter xx  :  Scalability and DR with Puppet
+  Chapter xx  :  Extending Puppet - Custom Resources, Providers, Facts
+  Chapter xx  :  Administering Puppet Infra : Managing, Logs, Monitoring
+	Chapter xx  :  Upgrading Puppet 3 to 4
+	Chapter xx  :  Foreman
+	Chapter xx  :  Auditing and Compliance (puppet inspect, audit metaparameter)

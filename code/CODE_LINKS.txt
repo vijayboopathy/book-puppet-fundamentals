@@ -1,0 +1,5 @@
+Chapter 3 : Manifests
+  base.pp: https://gist.github.com/initcron/68cb375c464a894956d5f88b6259376d
+  deploy_facebooc.pp  : https://gist.github.com/initcron/b98674a39e3e1109437e87d988019200
+
+Chapter 4: 

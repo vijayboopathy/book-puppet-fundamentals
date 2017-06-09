@@ -66,6 +66,7 @@ T> This is just one part of a larger field of Configuration Management.
 ### Golden Images/ Templates  
 Golden images, or templates, or simply os images, are probably the quickest way to deploy servers complete with configurations, specially in virtual or cloud environments. Images are nothing but pre baked templates with operations system files, applications, and configurations. Take any cloud provider, and one of the first components to choose while you provision a server is the images. A lot of organizations these days package their products in the form of images such as ova, vmdk or even vagrant's box format. However images have one major problem i.e. change management. Every time there is an update, even a single line change,  one needs to build a new image. Not only this complete system image needs to be distributed but also existing systems need to be replaced with the new image. Imagine doing that in a dynamic environment involving frequent updates across  hundreds of servers. That could get too cumbersome. And thats where the need to come up with a new approach.  
 
+
 ### Infrastructure as a Code  
 "Infrastructure as a Code" or "Programmable Infrastructure" is where today's generation tools such as Puppet, Chef, Ansible, Salt fit in. These tools essentially allow one to write the state of the infrastructure using a higher level descriptive  language and store it as a code. Since this is a code, one could bring in the best practices that developers have been following for years e.g. using revision control systems, use of sophisticated editors, test driven development, peer programming etc. You could  even build the complete infrastructure from scratch in case of a disaster, as long as you have the code repository, compute resources and data backups in place. Since this code is written in a simple declarative syntax, it is self documenting and offers visibility to all stakeholders into the way infrastructure is built and configured.
 
@@ -83,7 +84,7 @@ Golden images, or templates, or simply os images, are probably the quickest way 
 ## Why to use Puppet ?
 Now that we have started discussion on   Infrastructure as a Code, specifically Puppet, lets discuss about the specific features of puppet that make it a useful tool for configuration and change management.  
 
-### Declarative vs Procedural Approach
+### Procedural vs Declarative  Approach
 Scripts take a procedural approach towards automation. With scripts, we focus on the **how** part. e.g. how to install a package, how to create a user, how to modify it later, how to do it on a specific platform. And if you would want to add a support for another platform, you may have to add additional procedure and write a conditional to check for the platform and call the relevant code. This involves a lot of efforts.
 
 On the other hand, Puppet takes a declarative approach towards automation. With Puppet, our focus changes from   **how** part to **what**. Instead of writing procedures, we start using a simple declarative syntax to define the desired state of infrastructure.  Let me explain this with an analogy.
@@ -169,8 +170,15 @@ Puppet allows separation of  code and data.
 With puppet's ability to separate code and configuration data, the declarative code that you write in the form of modules with  puppet becomes generic enough to be shared and be reused. And since this code is in the version control, hosted services such as github offer the perfect means to publish this code. As you start writing code with puppet, you would discover about puppet forge, a library of community written modules. At the time of writing, there are more than 4000 modules available on puppet forge. Similar to a lot of open source code, you need not re invent the wheel. For most open source applications, you would find very sophisticated modules which you could use without even single line change. Download the modules, install it on your own puppet master, add configuration profile, and off you go.
 
 
-### Cloud Integrations
-With emergence of cloud, computing is moving towards the utility model. More and more organizations have already migrated or contemplating to migrate a partial or whole of their computing setup to cloud. And with that happening, which ever automation tool that you would consider, needs to have a close integration with the cloud platform that you plan to use. Provisioning of infrastructure components before puppet comes in and starts configuring  There are two ways Puppet provides a way for this,
+### Cloud Agnosticism and Hybrid Cloud Support
+With emergence of cloud, computing is moving towards the utility model. More and more organizations have already migrated or contemplating to migrate a partial or whole of their computing setup to cloud. Many others take a hybrid approach where they have some of their infrastructure running inside organization either on bare metal servers or private clouds, and rest on public clouds. And there are companies who build and deploy products on multitude of clouds.
+
+Puppet's cloud agnostic way fits the bill for all these strategies. Especially when supporting multiple cloud, instead of building, storing and maintaining templates, puppet provides a much effective way to configure, update and maintain the systems.
+
+
+#### Automated Provisioning on Cloud
+
+Puppet comes into picture typically after the operating system is installed, booted and puppet agent is launched as a service or one time. To get to this stage, provisioning of infrastructure using another tool becomes necessary.   There are many ways to achieve this,
 
 
 1. Through library of custom resources/libraries  which allow one to write provisioning of cloud components in the form of resources.
@@ -178,6 +186,8 @@ With emergence of cloud, computing is moving towards the utility model. More and
 1. Cloud specific tools e.g. Cloudformation on AWS or Heat on Openstack are some of the tools which help provision components which are specific to that cloud and then call puppet to do the configurations.
 
 1. Third party tools such as Vagrant, Terraform have in turn ability to talk to multiple cloud providers. These tools typically provision servers on the cloud and then hand it off to puppet for configurations.
+
+1. Usings Puppet's own cloud specific modules.
 
 ### Iterative Approach to Automation  
 However convinced you are with Puppet, scrapping  your existing automation tool  overnight for a shiny new tool may have  unknown risks attached. More over, it may could  be challenging  to get a buy in from your management to invest in time, money and resources to implement a new solution without showing them the value.
@@ -202,6 +212,7 @@ With ability to define the state of the  infrastructure components as a code and
 You should consider using puppet for the following purposes,
 
 * **Configuration Management** + Change Management: You have many nodes to deploy with changes happening often. You need to update the nodes and applications running on those often.  
+* ** Hybrid Cloud Deployments**: You have product which needs to be deployed on multitude of cloud platforms and you are looking for a solution which allows you to configure it consistently across all.
 * **Compliance and Audit**: When your organization has to comply to policies and you need an ability to convert those policies into a code which would auto correct and bring the nodes into the policy in case of configuration drifts. You also need to audit the systems regularly and prepare reports to find out which nodes have drifted away from the policy etc. as well as mitigate such issues.
 * **Software Delivery** : If you are in business of building software and delivering as ova images or similar, puppet is better approach to deliver the product and push updates to it.
 
@@ -233,7 +244,8 @@ You should consider using puppet for the following purposes,
   SCM is a part of the larger Configuration Management and typically refers to the practice of revision/version control. Puppet is not the tool which does the version control, however it can be used to replicate and manage software configurations across
   a cluster of nodes.
 
-  * A one stop  Devops solutions
+  * A one stop  Devops solutions ( Replacement for Jenkins. Monitoring  etc. )
+  Even though puppet becomes an important part of the devops tool kit, it is not a complete devops solution and replacement for CI tools such as Jenkins, or monitoring tools such as Nagios. You still need those tools.  
 
   * Puppet Use Cases/ Customer Stories
 
